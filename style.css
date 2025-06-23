@@ -1,0 +1,273 @@
+* {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .hero-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .hero-slide {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+
+    .hero-slide.visible {
+      opacity: 1;
+    }
+
+    .hero-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 10%;
+      left: 70%;
+      transform: translateX(-50%);
+      z-index: 2;
+      text-align: center;
+    }
+
+    .hero-text .para {
+      font-family: "Great Vibes", cursive;
+      font-size: 30px;
+      text-shadow: 2px 2px 5px #000000;
+    }
+
+    .main {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 40px 20px;
+    }
+
+    .content {
+      width: 100%;
+      max-width: 650px;
+      font-size: 16px;
+      font-weight: bold;
+      text-align: center;
+      background: linear-gradient(270deg, hsl(346, 100%, 63%), hsl(346, 100%, 63%), #ff416c);
+      background-size: 600% 600%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: textGradient 5s ease infinite, wave 2s ease-in-out infinite;
+      margin-bottom: 20px;
+    }
+
+    .con {
+      font-family: 'Courier New', Courier, monospace;
+      font-weight: 500;
+      font-style: normal;
+      color: #fff;
+      font-size: 16px;
+      text-shadow: 1px 1px 2px #000, 2px 2px 5px palevioletred;
+      margin-top: 20px;
+    }
+
+    .image {
+      width: 100%;
+      max-width: 500px;
+      text-align: center;
+    }
+
+    .image img {
+      width: 100%;
+      height: auto;
+    }
+
+    @keyframes textGradient {
+      0% {
+        background-position: 0% 50%;
+      }
+      100% {
+        background-position: 100% 50%;
+      }
+    }
+
+    @keyframes wave {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    .special-section {
+      padding: 60px 20px;
+      background-color: #fff0f5;
+      text-align: center;
+    }
+
+    .section-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: 40px;
+      color: palevioletred;
+      margin-bottom: 40px;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+
+    .special-card {
+      background: white;
+      border-radius: 20px;
+      width: 250px;
+      padding: 25px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      animation: floatCard 2s ease-in-out infinite;
+    }
+
+    .special-card h3 {
+      font-size: 22px;
+      color: #d6336c;
+      margin-bottom: 10px;
+      font-family: 'Emilys Candy', cursive;
+    }
+
+    .special-card p {
+      font-size: 16px;
+      color: #333;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .special-card:hover {
+      transform: translateY(-10px) scale(1.03);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    @keyframes floatCard {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-5px);
+      }
+    }
+
+    .card-section {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+      background-color: #fff0f5;
+    }
+
+    .card {
+      width: 350px;
+      height: 220px;
+      perspective: 1000px;
+      cursor: pointer;
+    }
+
+    .card-front, .card-back {
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      background: white;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      padding: 25px;
+      position: absolute;
+      backface-visibility: hidden;
+      transition: transform 0.8s ease;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .card-front {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #fbb1bd, #fff0f5);
+      transform: rotateY(0deg);
+      z-index: 2;
+    }
+
+    .card-front h2 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 32px;
+      color: palevioletred;
+    }
+
+    .card-subtext {
+      font-size: 14px;
+      color: #555;
+      margin-top: 10px;
+    }
+
+    .card-back {
+      background-color: #fff;
+      transform: rotateY(180deg);
+      text-align: left;
+      overflow-y: auto;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .card-back h3 {
+      font-family: 'Emilys Candy', cursive;
+      font-size: 24px;
+      color: #d6336c;
+      margin-bottom: 15px;
+    }
+
+    .card.open .card-front {
+      transform: rotateY(180deg);
+    }
+
+    .card.open .card-back {
+      transform: rotateY(360deg);
+    }
+
+    footer.designer-footer {
+      text-align: center;
+      padding: 20px;
+      background-color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Responsive Media Queries */
+    @media (max-width: 768px) {
+     
+
+      .content {
+        font-size: 15px;
+      }
+
+      .con {
+        font-size: 15px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      
+
+      .content {
+        font-size: 14px;
+      }
+
+      .con {
+        font-size: 14px;
+        text-align: justify;
+      }
+
+     
+    }
